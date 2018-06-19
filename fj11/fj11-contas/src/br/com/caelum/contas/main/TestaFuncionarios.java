@@ -1,5 +1,6 @@
 package br.com.caelum.contas.main;
 
+import br.com.caelum.contas.modelo.ControleDeBonificacoes;
 import br.com.caelum.contas.modelo.Funcionario;
 import br.com.caelum.contas.modelo.Gerente;
 
@@ -19,7 +20,10 @@ public class TestaFuncionarios {
 		System.out.println(gerente.imprime());
 
 		
-		System.out.println(funcionario.getBonificacao());
-		System.out.println(gerente.getBonificacao());
+		ControleDeBonificacoes controle = new ControleDeBonificacoes();
+		controle.registra(funcionario);
+		controle.registra(gerente);
+		
+		System.out.println(controle.getTotalDeBonificacoes());
 	}
 }
