@@ -25,6 +25,7 @@ public class TestaString {
 		reverter("Socorram-me, subi no ônibus em Marrocos");	
 		reverter("anotaram a data da maratona");
 		reverterMaster("Caue Queiroz");
+		
 	}
 	
 	public static void letraPorLinha(String str) {
