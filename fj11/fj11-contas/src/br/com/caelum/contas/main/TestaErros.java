@@ -16,6 +16,10 @@ public class TestaErros {
 		}
 
 		System.out.println(cc.getSaldo());
+		
+		Throwable tt = new Throwable();
+		Object tt2 = new Throwable();
+		System.out.println(tt.toString());
 
 	}
 }

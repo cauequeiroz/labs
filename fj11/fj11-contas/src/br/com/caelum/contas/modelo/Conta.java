@@ -64,5 +64,24 @@ public abstract class Conta {
 	public String imprime() {
 		return this.getTipo() + ": " + this.saldo;
 	}
+	
+	@Override
+	public String toString() {
+		return "[titular: " + this.titular.toUpperCase() + "]";
+	}
+	
+	@Override
+	public boolean equals(Object object) {
+		if (object == null) {
+			return false;
+		}
+		
+		if (!(object instanceof Conta)) {
+			return false;
+		}
+		
+		Conta outra = (Conta) object;
+		return this.numero == outra.numero && this.agencia.equals(outra.agencia);
+	}
 
 }
