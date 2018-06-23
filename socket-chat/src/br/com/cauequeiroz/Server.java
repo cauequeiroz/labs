@@ -12,7 +12,9 @@ public class Server {
 		System.out.println("[System] Server running at port 8080.");
 		System.out.println("[System] Waiting for connections...");
 		
-		Socket client = server.accept();		
+		Socket client = server.accept();	
+		System.out.println("[System] Client connected: " + client.getInetAddress().getHostAddress());
+		
 		Scanner clientMessages = new Scanner(client.getInputStream());
 		
 		while (clientMessages.hasNextLine()) {
