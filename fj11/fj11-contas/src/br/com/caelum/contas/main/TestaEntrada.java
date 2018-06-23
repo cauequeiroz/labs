@@ -36,10 +36,16 @@ public class TestaEntrada {
 		BufferedReader finalInputReader = new BufferedReader(inputReader);
 		
 		String line = finalInputReader.readLine();
+		boolean finishInput = false;
 		
-		while(line != null) {
+		while(!finishInput) {
+			if (line.equals("finish")) {
+				finishInput = true;
+				continue;
+			}
+			
 			System.out.println(line);
-			line = finalInputReader.readLine();
+			line = finalInputReader.readLine();			
 		}
 		
 		finalInputReader.close();
