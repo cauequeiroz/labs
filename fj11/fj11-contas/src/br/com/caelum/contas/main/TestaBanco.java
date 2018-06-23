@@ -8,7 +8,7 @@ public class TestaBanco {
 		
 		Banco banco = new Banco("Itau", 341);
 		
-		for (int i=0; i<158; i++) {
+		for (int i=0; i<20; i++) {
 			ContaCorrente conta = new ContaCorrente();
 			conta.setTitular("Conta número " + i);
 			conta.setAgencia("Agencia"+i);
@@ -19,5 +19,15 @@ public class TestaBanco {
 		}
 		
 		banco.mostraContas();
+		
+		ContaCorrente cc = new ContaCorrente();
+		cc.setTitular("Caue Queiroz");
+		cc.setAgencia("1234");
+		cc.setNumero(1234);
+		cc.deposita(250.0);
+		
+		banco.adiciona(cc);
+		
+		System.out.println(banco.buscaPorTitular("Caue Queiroz"));
 	}
 }

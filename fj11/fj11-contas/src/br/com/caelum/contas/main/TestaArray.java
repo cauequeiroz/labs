@@ -1,33 +1,19 @@
 package br.com.caelum.contas.main;
 
-import java.util.Random;
-import java.util.stream.DoubleStream;
-
-import br.com.caelum.contas.modelo.Conta;
-import br.com.caelum.contas.modelo.ContaCorrente;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Properties;
 
 public class TestaArray {
 	public static void main(String[] args) {
 		
-		Conta[] contas = new Conta[10];
+		Properties config = new Properties();
+		config.setProperty("login", "cauequeiroz");
+		config.setProperty("password", "1234");
 		
-		for (int i=0; i<contas.length; i++) {
-			contas[i] = new ContaCorrente();
-			contas[i].setTitular("Conta número " + i);
-			contas[i].deposita(fixDecimal(new Random().nextDouble() * 1000.0));		
-		}
-			
-		double total = 0.0;
-		
-		for (Conta conta : contas) {
-			total += conta.getSaldo();
-		}
-		
-		System.out.println(fixDecimal(total));
-		
-	}
-	
-	static double fixDecimal(double number) {
-		return Double.parseDouble(String.format("%.2f",	number));
+		System.out.println(config.getProperty("loginn", "hey"));
 	}
 }

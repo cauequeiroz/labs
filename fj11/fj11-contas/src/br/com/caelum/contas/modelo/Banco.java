@@ -1,49 +1,47 @@
 package br.com.caelum.contas.modelo;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 public class Banco {
 	private String nome;
 	private int numero;
-	private Conta[] contas;
-	private int contaLivre = 0;
-	private int limiteConta = 10;
+	private List<Conta> contas;
+	private Map<String, Conta> clientes;
 	
 	public Banco(String nome, int numero) {
 		this.nome = nome;
 		this.numero = numero;
-		this.contas = new ContaCorrente[limiteConta];
+		this.contas = new ArrayList<Conta>();
+		this.clientes = new HashMap<String, Conta>();
 	}
 	
 	public void adiciona(Conta conta) {
-		if (contaLivre >= limiteConta) {
-			this.limiteConta += 10;
-			
-			Conta[] old = this.contas;
-			this.contas = new ContaCorrente[limiteConta];
-			
-			for (int i=0; i<old.length; i++) {
-				this.contas[i] = old[i];
-			}		
-		}
-		
-		this.contas[contaLivre] = conta;
-		contaLivre++;
+		this.contas.add(conta);
+		this.clientes.put(conta.getTitular(), conta);
+	}
+	
+	public Conta pega(int x) {
+		return this.contas.get(x);
 	}
 	
 	public void mostraContas() {
-		for (int i=0; i<contaLivre; i++) {
-			System.out.println(this.contas[i]);
+		for (Conta conta : this.contas ) {
+			System.out.println(conta);
 		}
 	}
 	
 	public boolean contem(Conta conta) {
-		for (int i=0; i<contaLivre; i++) {
-			System.out.println("Buscando.." + i);
-			if (this.contas[i].equals(conta)) {
-				return true;
-			}
-		}
-		
-		return false;
+		return this.contas.contains(conta);
 	}
 	
+	public int pegaQuantidadeDeContas() {
+		return this.contas.size();
+	}
+	
+	public Conta buscaPorTitular(String titular) {
+		return this.clientes.get(titular);
+	}
 }

@@ -1,6 +1,6 @@
 package br.com.caelum.contas.modelo;
 
-public abstract class Conta {
+public abstract class Conta implements Comparable<Conta> {
 	protected String agencia;
 	protected String titular;
 	protected int numero;	
@@ -71,17 +71,36 @@ public abstract class Conta {
 	}
 	
 	@Override
-	public boolean equals(Object object) {
-		if (object == null) {
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((agencia == null) ? 0 : agencia.hashCode());
+		result = prime * result + numero;
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
 			return false;
-		}
-		
-		if (!(object instanceof Conta)) {
+		if (getClass() != obj.getClass())
 			return false;
-		}
-		
-		Conta outra = (Conta) object;
-		return this.numero == outra.numero && this.agencia.equals(outra.agencia);
+		Conta other = (Conta) obj;
+		if (agencia == null) {
+			if (other.agencia != null)
+				return false;
+		} else if (!agencia.equals(other.agencia))
+			return false;
+		if (numero != other.numero)
+			return false;
+		return true;
+	}
+	
+	@Override
+	public int compareTo(Conta outraConta) {
+		return this.titular.compareTo(outraConta.titular);
 	}
 
 }
