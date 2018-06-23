@@ -13,11 +13,7 @@ public class TestaComparator {
 		nomes.add("Amanda");
 		nomes.add("Zorro");
 		
-		Collections.sort(nomes, new Comparator<String>() {
-			public int compare(String o1, String o2) {
-				return Integer.compare(o1.length(), o2.length());
-			}			
-		});
+		Collections.sort(nomes, (s1, s2) -> Integer.compare(s1.length(), s2.length()));
 		
 		System.out.println(nomes);
 		
