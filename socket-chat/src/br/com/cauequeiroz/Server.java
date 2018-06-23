@@ -8,20 +8,19 @@ import java.util.Scanner;
 public class Server {
 	public static void main(String[] args) throws IOException {
 		
-		ServerSocket server = new ServerSocket(12345);
-		System.out.println("Server running at port 12345...");
+		ServerSocket server = new ServerSocket(8080);
+		System.out.println("[System] Server running at port 8080.");
+		System.out.println("[System] Waiting for connections...");
 		
-		Socket client = server.accept();
-		System.out.println("Client connected: " + client.getInetAddress().getHostAddress());
+		Socket client = server.accept();		
+		Scanner clientMessages = new Scanner(client.getInputStream());
 		
-		Scanner clientInput = new Scanner(client.getInputStream());
-		while(clientInput.hasNextLine()) {
-			System.out.println(clientInput.nextLine());
+		while (clientMessages.hasNextLine()) {
+			System.out.println("[Client] " + clientMessages.nextLine());
 		}
 		
-		clientInput.close();
+		clientMessages.close();
 		client.close();
-		server.close();
-		
+		server.close();		
 	}
 }
