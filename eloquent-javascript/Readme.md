@@ -5,7 +5,7 @@ Exercises and annotations from Eloquent Javascript book.
 ## Chapters
 
 - [x] Introduction
-- [ ] Values, Types, and Operators
+- [x] Values, Types, and Operators
 - [ ] Program Structure
 - [ ] Functions
 - [ ] Data Structures: Objects and Arrays
