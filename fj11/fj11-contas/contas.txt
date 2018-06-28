@@ -1,3 +1,0 @@
-Conta Corrente,3131,1546889,Caue Queiroz,50.0
-Conta Poupança,8795,456123,Henrique SIlva,125.0
-Conta Corrente,4577,8858-5,Isabela Queiroz,855.0
