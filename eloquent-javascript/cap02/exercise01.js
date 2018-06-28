@@ -11,14 +11,4 @@
   #######
 ===================================================================================================== */
 
-let triangle = "";
-
-for (let line = 1; line <= 7; line++) {
-  for (let column = 1; column <= line; column++) {
-    triangle += "#";
-  }
-
-  triangle += "\n";
-}
-
-console.log(triangle);
+for (let line = "#"; line.length <= 7; line += "#" ) console.log(line);
