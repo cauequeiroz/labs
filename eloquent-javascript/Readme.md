@@ -7,7 +7,7 @@ Exercises and annotations from Eloquent Javascript book.
 - [x] Introduction
 - [x] Values, Types, and Operators
 - [x] Program Structure
-- [ ] Functions
+- [x] Functions
 - [ ] Data Structures: Objects and Arrays
 - [ ] Higher-order Functions
 - [ ] The Secret Life of Objects
