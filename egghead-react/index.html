@@ -16,14 +16,16 @@
 
 <script type="text/babel">
 
-  const Message = ({text}) => (
-    <div>{ text ? text : 'no content.'}</div>
-  )
+  const tick = () => {
+    const time = new Date().toLocaleTimeString()
+    const element = <div> It's <input value={time} /></div>
+    ReactDOM.render(
+      element,
+      document.querySelector('#root')
+    )    
+  }
 
-  ReactDOM.render(
-    <Message text="hey dude, what up?" />,
-    document.querySelector('#root')
-  )
+  setInterval(tick, 1000)
 
 </script>
 </body>
