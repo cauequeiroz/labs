@@ -16,11 +16,19 @@
   
   const rootElement = document.querySelector('#root')
 
-  const props = { className: 'container' }
-  const message = 'Welcome my friend!'
-  const element = <div {...props}>{message}</div>
+  const Logger = props => <div className="logger">{props.children}</div>
 
-  ReactDOM.render(element, rootElement)
+  const html = (
+    <div className='container'>
+      <Logger>Hey dude!</Logger>
+      <Logger>
+        How are you?
+        <Logger>I'm ok!! hehe</Logger>
+      </Logger>
+    </div>
+  )
+
+  ReactDOM.render(html, rootElement)
   
   </script>
 </body>
