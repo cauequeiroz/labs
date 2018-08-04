@@ -1,7 +1,5 @@
 const rootElement = document.querySelector('#root')
 
-const element = document.createElement('div')
-element.textContent = 'Welcome!'
-element.className = 'container'
+const element = React.createElement('div', { className: 'container' }, 'Welcome!')
 
-rootElement.appendChild(element)
+ReactDOM.render(element, rootElement)
