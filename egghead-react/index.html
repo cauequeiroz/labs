@@ -16,15 +16,12 @@
 
 <script type="text/babel">
 
-  const SayHello = props => <div>Hello {props.firstName} {props.lastName}</div>
-
-  SayHello.propTypes = {
-    firstName: PropTypes.string.isRequired,
-    lastName: PropTypes.string.isRequired
-  }
+  const Message = ({text}) => (
+    <div>{ text ? text : 'no content.'}</div>
+  )
 
   ReactDOM.render(
-    <SayHello firstName='Caue' lastName="Queiroz" />,
+    <Message text="hey dude, what up?" />,
     document.querySelector('#root')
   )
 
